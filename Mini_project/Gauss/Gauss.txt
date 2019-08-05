@@ -1,0 +1,60 @@
+
+ Example 5.11: Orbit determination by the Gauss method
+
+ Radius of earth (km)               = 6378.14
+ Flattening factor                  = 0.00335282
+ Gravitational parameter (km^3/s^2) = 398600
+
+ Input data:
+
+ Latitude (deg)                = 13.0345
+ Altitude above sea level (km) = 0.83991
+
+ Observations:
+               Right                                     Local
+   Time (s)   Ascension (deg)   Declination (deg)   Sidereal time (deg)
+     18.48    -32.9767              4.1473              51.9787
+     18.51    -27.1083              9.0124              52.3422
+     18.71   -216.1809             22.1737              55.3713
+
+ Solution:
+
+ Without iterative improvement...
+
+
+ r (km)                          = [5759.99, 3916.14, 1779]
+ v (km/s)                        = [-4.00493, 5.72783, 1.77116]
+
+   Angular momentum (km^2/s)     = 51770.3
+   Eccentricity                  = 0.0790151
+   RA of ascending node (deg)    = 349.365
+   Inclination (deg)             = 19.9093
+   Argument of perigee (deg)     = 261.692
+   True anomaly (deg)            = 144.92
+   Semimajor axis (km)           = 6766.18
+   Periapse radius (km)          = 6231.55
+   Period:
+     Seconds                     = 5538.93
+     Minutes                     = 92.3156
+     Hours                       = 1.53859
+     Days                        = 0.064108
+
+ With iterative improvement...
+
+
+ r (km)                          = [5849.71, 3870.21, 1794.98]
+ v (km/s)                        = [-4.34544, 5.74907, 1.76349]
+
+   Angular momentum (km^2/s)     = 53716.1
+   Eccentricity                  = 0.000190761
+   RA of ascending node (deg)    = 349.082
+   Inclination (deg)             = 20.0884
+   Argument of perigee (deg)     = 203.213
+   True anomaly (deg)            = 202.991
+   Semimajor axis (km)           = 7238.87
+   Periapse radius (km)          = 7237.49
+   Period:
+     Seconds                     = 6129.38
+     Minutes                     = 102.156
+     Hours                       = 1.70261
+     Days                        = 0.0709419

@@ -1,0 +1,1316 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{graphicx}
+%\usepackage{color}
+
+%\sloppy
+%\definecolor{lightgray}{gray}{0.5}
+%\setlength{\parindent}{0pt}
+
+
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+System Identification Assignment 3
+\end_layout
+
+\begin_layout Author
+Manoj V AE14B013
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+q1
+\end_layout
+
+\begin_layout Subsection*
+a
+\end_layout
+
+\begin_layout Subsubsection*
+i Find K
+\end_layout
+
+\begin_layout Standard
+The total probability of occurence in x,y space should be equal to 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{-inf}^{\inf}k(1-x)(1-y)dxdy=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\intop_{0}\intop_{0}^{+11}k(1-x)(1-y)dxdy=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k/4=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+k=4
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+ii Marginal density
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{x}(x)=\intop_{\epsilon_{y}}f(x,y)dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{x}(x)=\intop_{0}^{1}4(1-x)(1-y)dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{x}(x)=4(1-x)\intop_{0}^{1}(1-y)dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{x}(x)=2(1-x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly the function is symmetric, Therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{y}(y)=2(1-y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+iii Probability in confined region
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=\intop_{(y=0.2)(}^{0.4}\intop_{x=0.4)}^{0.8}4(1-x)(1-y)dxdy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=4(x-x^{2}/2)|_{0.4}^{0.8}(y-y^{2}/2)|_{0.2}^{0.4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P=4(0.32-0.18)(0.48-0.32)=0.0896
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+iv 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{y}(y|_{X=x})=\frac{f(x,y)}{f_{x}(x)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{y}(y|_{X=x})=\frac{4(1-x)(1-y)}{2(1-x)}=2(1-y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+x and y are symmetric.
+ therefore
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f_{x}(X|_{Y=y})=\frac{4(1-x)(1-y)}{2(1-y)}=2(1-x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+b
+\end_layout
+
+\begin_layout Standard
+Lets start with joint gausian distribution.
+\end_layout
+
+\begin_layout Standard
+We get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x,y)=\frac{1}{2\pi|\sum_{z}|^{0.5}}e^{\frac{-1}{2}(Z-\mu_{z})^{T}\sum_{Z}^{-1}(Z-\mu_{Z})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum z=\left(\begin{array}{cc}
+\sigma_{x}^{2} & \sigma_{xy}\\
+\sigma_{xy} & \sigma_{y}^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In our case
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum z=\left(\begin{array}{cc}
+\sigma_{x}^{2} & 0\\
+0 & \sigma_{y}^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+|\sum z|=\left(\sigma_{x}^{2}\sigma_{y}^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking the power of e,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\begin{array}{cc}
+x-\mu_{x} & y-\mu_{y}\end{array}\right)\left(\begin{array}{cc}
+\sigma_{x}^{2} & 0\\
+0 & \sigma_{y}^{2}
+\end{array}\right)\left(\begin{array}{c}
+x-\mu_{x}\\
+y-\mu_{y}
+\end{array}\right)=\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}+\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting in f(x,y), we get,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x,y)=\frac{1}{2\pi\sigma_{x}\sigma_{y}}e^{\frac{-1}{2}\frac{(x-\mu_{x})^{2}}{\sigma_{x}^{2}}}e^{-0.5\frac{(y-\mu_{y})^{2}}{\sigma_{y}^{2}}}
+\]
+
+\end_inset
+
+^
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x)=\frac{1}{\sigma_{x}\sqrt{2\pi}}e^{\frac{-1}{2}\frac{(x-\mu)^{2}}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(y)=\frac{1}{\sigma_{y}\sqrt{2\pi}}e^{\frac{-1}{2}\frac{(y-\mu)^{2}}{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(x,y)=f(x)f(y)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So when x and y are uncorrelated, they are also independant in case of gaussian
+ noise.
+\end_layout
+
+\begin_layout Section
+q2
+\end_layout
+
+\begin_layout Subsection*
+a
+\end_layout
+
+\begin_layout Standard
+There are 2 parts to the code.
+\end_layout
+
+\begin_layout Standard
+1)The function made to compute pacf and acf(q2.m)
+\end_layout
+
+\begin_layout Standard
+2)script to call that function for the 3 test conditions given(q2Caller.m)
+\end_layout
+
+\begin_layout Subsubsection*
+q2.m
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/home/manoj/gits/projects/courseWork/sysId/ass3/q2.m"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+q2Caller.m
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/home/manoj/gits/projects/courseWork/sysId/ass3/q2Caller.m"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+b
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+color{black}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Verbatim
+
+WHITE NOISE
+\end_layout
+
+\begin_layout Verbatim
+
+MA process 1
+\end_layout
+
+\begin_layout Verbatim
+
+AR1 process 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+color{black}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../html/q2Caller_01.eps
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../html/q2Caller_02.eps
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../html/q2Caller_03.eps
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+q3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v[k]=v_{1}[k]+v_{2}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{1}[k]=\phi v_{1}[k-2]+e_{1}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{2}[k]=e_{2}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting first equation in second,
+\begin_inset Formula 
+\[
+v[k]-v_{2}[k]=\phi(v[k-2]-v_{2}[k-2])+e_{1}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(1-q^{-1})v[k]=(1-q^{-1})v_{2}[k]+e_{1}[k]==(1-q^{-1})e_{2}[k]+e_{1}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Order of Ar part is 1.
+ 
+\end_layout
+
+\begin_layout Section
+q4
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+a) PACF, ACF:
+\end_layout
+
+\begin_layout Subsubsection*
+code 
+\series bold
+Modified q2.m
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+code Q4.m
+\end_layout
+
+\begin_layout Verbatim
+
+% This function is used to call q2.m to calculate ACF and PACF functions
+\end_layout
+
+\begin_layout Verbatim
+
+% for 4th question
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Verbatim
+
+close all
+\end_layout
+
+\begin_layout Verbatim
+
+clear;  %Just in case
+\end_layout
+
+\begin_layout Verbatim
+
+load series.mat;
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Verbatim
+
+display('PACF and ACF')
+\end_layout
+
+\begin_layout Verbatim
+
+q2(vk);
+\end_layout
+
+\begin_layout Verbatim
+
+text(4, 3.35,' 
+\backslash
+bf VK '...
+\end_layout
+
+\begin_layout Verbatim
+
+        ,'HorizontalAlignment','center','VerticalAlignment', 'top');
+\end_layout
+
+\begin_layout Verbatim
+
+drawnow
+\end_layout
+
+\begin_layout Subsubsection*
+result
+\end_layout
+
+\begin_layout Verbatim
+
+PACF and ACF Normal view
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../html/q4_01.eps
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verbatim
+
+PACF and ACF closeup view:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ../html/q4_01.eps
+	width 4in
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Subsubsection*
+Inference:
+\end_layout
+
+\begin_layout Itemize
+ACF drops slowly.
+ So its not a MA process
+\end_layout
+
+\begin_layout Itemize
+PACF drops below the level of significance much faster than ACF.
+ So we can consider it as a AR process and order of 4
+\end_layout
+
+\begin_layout Subsection*
+b)Model Estimation:
+\end_layout
+
+\begin_layout Itemize
+AR process and order of 4
+\end_layout
+
+\begin_layout Subsubsection*
+code
+\end_layout
+
+\begin_layout Verbatim
+
+%q4b.m
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Verbatim
+
+model=ar(vk,4)
+\end_layout
+
+\begin_layout Subsubsection*
+result
+\end_layout
+
+\begin_layout Verbatim
+
+model =
+\end_layout
+
+\begin_layout Verbatim
+
+Discrete-time AR model:  A(z)y(t) = e(t)                       
+\end_layout
+
+\begin_layout Verbatim
+
+  A(z) = 1 - 1.773 z^-1 + 1.332 z^-2 - 0.6504 z^-3 + 0.189 z^-4
+\end_layout
+
+\begin_layout Verbatim
+
+                                                               
+\end_layout
+
+\begin_layout Verbatim
+
+Sample time: 1 seconds
+\end_layout
+
+\begin_layout Verbatim
+
+  
+\end_layout
+
+\begin_layout Verbatim
+
+Parameterization:
+\end_layout
+
+\begin_layout Verbatim
+
+   Polynomial orders:   na=4
+\end_layout
+
+\begin_layout Verbatim
+
+   Number of free coefficients: 4
+\end_layout
+
+\begin_layout Verbatim
+
+   Use "polydata", "getpvec", "getcov" for parameters and their uncertainties.
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Verbatim
+
+Status:                                                
+\end_layout
+
+\begin_layout Verbatim
+
+Estimated using AR ('fb/now') on time domain data "vk".
+\end_layout
+
+\begin_layout Verbatim
+
+Fit to estimation data: 72.53%                         
+\end_layout
+
+\begin_layout Verbatim
+
+FPE: 1.006, MSE: 0.9983        
+\end_layout
+
+\begin_layout Subsubsection*
+Inferences:
+\end_layout
+
+\begin_layout Itemize
+PACF drops below the level of significance much faster than ACF.
+ So we can consider it as a AR process and order of 4
+\end_layout
+
+\begin_layout Itemize
+If we increase the order greater than 4 there is no significant increase
+ in the fit to estimation data.
+ So the model is good enough
+\end_layout
+
+\begin_layout Section
+q5
+\end_layout
+
+\begin_layout Subsection*
+a variances:
+\end_layout
+
+\begin_layout Subsubsection*
+i 
+\begin_inset Formula $\sigma_{y}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The two parameters in the model are called as f and b for simplicity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=E[(y[k]-\bar{y})(y[k]-\bar{y})]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=E[(y[k])(y[k])]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=E[(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]+e^{2}[k]+2e[k](\frac{bq^{-2}}{1+fq^{-1}})u[k]]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming that u and e are not related!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=E[(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]+E[e^{2}[k]]+2E[e[k]]E[(\frac{bq^{-2}}{1+fq^{-1}})u[k]]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=E[(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]+E[e^{2}[k]]+2E[e[k]]E[(\frac{bq^{-2}}{1+fq^{-1}})u[k]]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To evaluate the first part along with q^-1, that part is taken as a separate
+ variable and we get something like this,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X[k]=(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X[k]=(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(1+2fq^{-1}+f^{2}q^{-2})X[k]=(b)^{2}u^{2}[k-2]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E(X[k]+2fX[k-1]+f^{2}x[k-2])=(b)^{2}E(u^{2}[k-2])
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+E does not depend on the signal lag
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(1+2f+f^{2})E(x\{k\})=(b)^{2}E(u^{2}[k])-b^{2}E^{2}(u[k])+b^{2}E^{2}(u[k])=b^{2}\sigma_{u}^{2}+b^{2}\bar{u}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(x\{k\})=\frac{b^{2}}{1+f^{2}}(\sigma_{u}^{2}+\bar{u}^{2})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly we get,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(y[k])=\frac{b}{1+f}\bar{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=E[(\frac{bq^{-2}}{1+fq^{-1}})^{2}u^{2}[k]+E[e^{2}[k]]+2E[e[k]]E[(\frac{bq^{-2}}{1+fq^{-1}})u[k]]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+substituting for variance of e and expectation of e (0)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=\frac{b^{2}}{1+f^{2}}(\sigma_{u}^{2}+\bar{u}^{2})+\sigma_{e}^{2}-\frac{b^{2}}{(1+f^{2}}\bar{u^{2}}=\frac{b^{2}}{1+f^{2}}(\sigma_{u}^{2})+\sigma_{e}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{y}^{2}=\frac{b^{2}}{1+f^{2}}(\sigma_{u}^{2})+\sigma_{e}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+ii 
+\begin_inset Formula $σyy[1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly substitnuting and expanding,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{yy}[1]=E[(\frac{bq^{-2}}{1+fq^{-1}})^{2}u[k]u[k-1]+E[e^{2}[k]]+E[e[k]]E[(\frac{bq^{-2}}{1+fq^{-1}})u[k]]+E[e[k]]E[(\frac{bq^{-2}}{1+fq^{-1}})u[k-1]]-\bar{(y)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With the same arguments used in last problem this reduces to,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{yy}[1]=(\frac{b}{1+q})^{2}E\{u[k]u[k-1]\}+\sigma_{e}^{2}-(\frac{b}{1+q})^{2}\bar{u}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{yy}[1]=(\frac{b}{1+q})^{2}(E\{u[k]u[k-1]\}-\bar{u}^{2})+\sigma_{e}^{2}=(\frac{b}{1+q})^{2}\sigma_{yu}[1]+\sigma_{e}^{2}=\sigma_{e}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because the given u is also a white noise!
+\end_layout
+
+\begin_layout Subsubsection*
+iii 
+\begin_inset Formula $σyu[1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{yu}[1]=E\{y[k]u[k-1]\}=E\{(\frac{bq^{-2}}{1+fq^{-1}})^{2}u[k]u[k-1]\}+E\{e[k]u[k]\}=(\frac{b}{1+q})^{2}E\{u[k-2]u[k-3]\}+E\{e[k]u[k]\}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+iv 
+\begin_inset Formula $σyu[2]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+repeating the same steps as last problem
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sigma_{yu}[2]=(\frac{b}{1+q})^{2}E\{u[k-2]u[k-4]\}+E\{e[k]u[k]\}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+b
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y[k]=\sum_{n=0}^{\inf}g[n][k-n]+e[k]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+taking correlation,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+corr(y[k],u[k-l])=corr(\sum_{n=0}^{\inf}g[n][k-n],u[k-l])+corr(e[k],u[k-l])
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming gwn for the u and e we get,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+corr(e[k],u[k-l])=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and also only one term will exist in the summation,
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+corr(y[k],u[k-l])=g[l]corr(u[k-l],u[k-l])=g[l]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therfore,
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+g[l]=corr(y[k],u[k-l])
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This way we can get impulse response coeffs.
+ This method assumes GWN.
+ It wont work for others
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ALL</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-02-14"><meta name="DC.source" content="ALL.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Problem 1</a></li><li><a href="#2">Problem 2</a></li><li><a href="#3">Problem 3</a></li><li><a href="#4">Problem 4</a></li></ul></div><h2>Problem 1<a name="1"></a></h2><pre class="codeinput">coe_1= coe_from_sv( [6837.432552  1868.795099  1455.480629 ],[-2.294079 6.758849  2.049468 ],398600);
+fprintf(<span class="string">'\n Angular momentum = %s km^3/s \n'</span>, coe_1(1))
+fprintf(<span class="string">'\n Eccentricity = %s \n'</span>, coe_1(2))
+fprintf(<span class="string">'\n Right ascesion = %s degrees\n'</span>, coe_1(3)*180/pi)
+fprintf(<span class="string">'\n Inclination = %s degrees\n'</span>, coe_1(4)*180/pi)
+fprintf(<span class="string">'\n Argument of Perigee = %s degrees \n'</span>, coe_1(5)*180/pi)
+fprintf(<span class="string">'\n True Anomaly = %s degrees\n'</span>, coe_1(6)*180/pi)
+fprintf(<span class="string">'\n Semi major axis = %s km\n'</span>, coe_1(7))
+</pre><pre class="codeoutput">
+ Angular momentum = 5.373516e+04 km^3/s 
+
+ Eccentricity = 1.726783e-03 
+
+ Right ascesion = 3.409040e+02 degrees
+
+ Inclination = 1.998189e+01 degrees
+
+ Argument of Perigee = 8.677805e+01 degrees 
+
+ True Anomaly = 3.092803e+02 degrees
+
+ Semi major axis = 7.244044e+03 km
+</pre><h2>Problem 2<a name="2"></a></h2><pre class="codeinput">lst_1 = LST(2016, 12, 17, 5.5, 80.1599639);  <span class="comment">% Sriharikota</span>
+lst_2 = LST(2007, 12, 21, 10, 144+58/60);    <span class="comment">% Melbourne</span>
+lst_3 = LST(2006, 02, 15, 3, -43-6/60);       <span class="comment">% Rio de Janeiro</span>
+fprintf(<span class="string">'\n Sidereal time at Sriharikota = %s degrees \n'</span>, lst_1)
+fprintf(<span class="string">'\n Sidereal time at Melbourne = %s degrees \n'</span>, lst_2)
+fprintf(<span class="string">'\n Sidereal time at Rio de Janeiro = %s degrees \n'</span>, lst_3)
+</pre><pre class="codeoutput">
+ Sidereal time at Sriharikota = 2.489391e+02 degrees 
+
+ Sidereal time at Melbourne = 2.456463e+01 degrees 
+
+ Sidereal time at Rio de Janeiro = 1.468842e+02 degrees 
+</pre><h2>Problem 3<a name="3"></a></h2><pre class="codeinput">[r,v] = rv_from_observe(988, 4.86, 36, 0.59, 36.6,-0.263, 40,35, 0)
+</pre><pre class="codeoutput">
+r =
+
+   1.0e+03 *
+
+    3.7948    3.7928    4.5014
+
+
+v =
+
+   -7.7248    7.7213    0.0187
+
+</pre><h2>Problem 4<a name="4"></a></h2><pre class="codeinput">r1=[5662.1 6538.0 3269 ];
+v1=[-3.8856 5.1214 -2.2433 ];
+X=-r1/norm(r1);
+Z=-cross(r1,v1);Z=Z/norm(Z);
+Y=cross(Z,X);Y=Y/norm(Y);
+fprintf(<span class="string">'\n Transformation matrix\n'</span>)
+T=[X; Y; Z]
+</pre><pre class="codeoutput">
+ Transformation matrix
+
+T =
+
+   -0.6124   -0.7071   -0.3536
+   -0.6124    0.7071   -0.3535
+    0.5000    0.0000   -0.8660
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Problem 1
+coe_1= coe_from_sv( [6837.432552  1868.795099  1455.480629 ],[-2.294079 6.758849  2.049468 ],398600);
+fprintf('\n Angular momentum = %s km^3/s \n', coe_1(1))
+fprintf('\n Eccentricity = %s \n', coe_1(2))
+fprintf('\n Right ascesion = %s degrees\n', coe_1(3)*180/pi)
+fprintf('\n Inclination = %s degrees\n', coe_1(4)*180/pi)
+fprintf('\n Argument of Perigee = %s degrees \n', coe_1(5)*180/pi)
+fprintf('\n True Anomaly = %s degrees\n', coe_1(6)*180/pi)
+fprintf('\n Semi major axis = %s km\n', coe_1(7)) 
+%% Problem 2
+lst_1 = LST(2016, 12, 17, 5.5, 80.1599639);  % Sriharikota
+lst_2 = LST(2007, 12, 21, 10, 144+58/60);    % Melbourne
+lst_3 = LST(2006, 02, 15, 3, -43-6/60);       % Rio de Janeiro
+fprintf('\n Sidereal time at Sriharikota = %s degrees \n', lst_1) 
+fprintf('\n Sidereal time at Melbourne = %s degrees \n', lst_2) 
+fprintf('\n Sidereal time at Rio de Janeiro = %s degrees \n', lst_3) 
+%% Problem 3
+[r,v] = rv_from_observe(988, 4.86, 36, 0.59, 36.6,-0.263, 40,35, 0)
+%% Problem 4
+r1=[5662.1 6538.0 3269 ];
+v1=[-3.8856 5.1214 -2.2433 ];
+X=-r1/norm(r1);
+Z=-cross(r1,v1);Z=Z/norm(Z);
+Y=cross(Z,X);Y=Y/norm(Y);
+fprintf('\n Transformation matrix\n') 
+T=[X; Y; Z] 
+##### SOURCE END #####
+--></body></html>

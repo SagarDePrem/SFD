@@ -1,0 +1,50 @@
+-----------------------------------------------------
+
+ Input data:
+
+ Gravitational parameter (km^3/s^2)  = 398600
+
+ r1 (km)                             = [5273.9 -4863.93 -623.438]
+ r2 (km)                             = [4231.93 -4721.25 3414.2]
+ Elapsed time (s)                    = 569
+
+ Lambert OD Solution:
+
+ v1 (km/s)                           = [-0.291908 -1.2552 7.32686]
+ v2 (km/s)                           = [-3.26454 1.74225 6.45411]
+
+ Orbital elements:
+ Angular momentum (km^2/s)           = 53573.7
+ Eccentricity                        = 0.000125402
+ Inclination (deg)                   = 98.6308
+ Type of orbit Prograde / Retrograde = retro
+ RA of ascending node (deg)          = 316.56
+ Argument of perigee (deg)           = 156.683
+ True anomaly initial (deg)          = 196.84
+ True anomaly final (deg)            = 231.973
+ Semimajor axis (km)                 = 7200.57
+ Periapse radius (km)                = 7199.66
+ Period                              = 101.347 minutes
+-----------------------------------------------------
+
+
+--------------------------------------------------------
+
+ Earth Orbit
+
+ The initial position is [4231.93, -4721.25, 3414.2] (km).
+ Magnitude = 7201.12 km
+
+ The initial velocity is [-3.26454, 1.74225, 6.45411] (km/s).
+ Magnitude = 7.43964 km/s
+
+ Initial time = 0 min.
+ Final time = 101.347 min.
+
+ The minimum altitude is 817.441 km at time = 1.64471 h.
+ The speed at that point is 7.44528 km/s.
+
+ The maximum altitude is 823.036 km at time = 0.0551351 h.
+ The speed at that point is 7.43954 km/s
+
+--------------------------------------------------------

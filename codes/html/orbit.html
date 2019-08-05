@@ -1,0 +1,314 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>orbit</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-01-28"><meta name="DC.source" content="orbit.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> orbit
+clc; close <span class="string">all</span>; clear <span class="string">all</span>
+hours = 3600;
+G = 6.6742e-20;
+
+<span class="comment">%...Input data:</span>
+<span class="comment">% Earth:</span>
+m1 =    5.974e24*4903/398600;                <span class="comment">%moon %5.974e24 - earth;</span>
+R =1737 ;                           <span class="comment">%6378.137%1737;</span>
+m2 = 1000;
+r0 = [6837.432552 1868.795099 1455.480629];
+v0 = [-2.294079 6.758849 2.049468];
+t0 = 0;
+tf = 200*60;                         <span class="comment">%200*hours;</span>
+<span class="comment">%...End input data</span>
+
+<span class="comment">%...Numerical integration:</span>
+mu = G*(m1 + m2);
+y0 = [r0 v0]';
+[t,y] = rkf45(@rates, [t0 tf], y0);
+<span class="comment">%...Output the results:</span>
+output
+<span class="keyword">return</span>
+<span class="comment">% ~~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="keyword">function</span> dydt = rates(t,f)
+<span class="comment">% ~~~~~~~~~~~~~~~~~~~~~~~~</span>
+
+<span class="comment">% ------------------------</span>
+x = f(1);
+y = f(2);
+z = f(3);
+vx = f(4);
+vy = f(5);
+vz = f(6);
+r = norm([x y z]);
+ax = -mu*x/r^3;
+ay = -mu*y/r^3;
+az = -mu*z/r^3;
+dydt = [vx vy vz ax ay az]';
+<span class="keyword">end</span> <span class="comment">%rates</span>
+<span class="comment">% ~~~~~~~~~~~~~</span>
+<span class="keyword">function</span> output
+<span class="comment">% ~~~~~~~~~~~~~</span>
+
+<span class="comment">% -------------</span>
+<span class="keyword">for</span> i = 1:length(t)
+r(i) = norm([y(i,1) y(i,2) y(i,3)]);
+<span class="keyword">end</span>
+[rmax imax] = max(r);
+[rmin imin] = min(r);
+v_at_rmax = norm([y(imax,4) y(imax,5) y(imax,6)]);
+v_at_rmin = norm([y(imin,4) y(imin,5) y(imin,6)]);
+<span class="comment">%...Output to the command window:</span>
+fprintf(<span class="string">'\n\n--------------------------------------------------------\n'</span>)
+fprintf(<span class="string">'\n Earth Orbit\n'</span>)
+fprintf(<span class="string">' %s\n'</span>, datestr(now))
+fprintf(<span class="string">'\n The initial position is [%g, %g, %g] (km).'</span>,<span class="keyword">...</span>
+r0(1), r0(2), r0(3))
+fprintf(<span class="string">'\n Magnitude = %g km\n'</span>, norm(r0))
+fprintf(<span class="string">'\n The initial velocity is [%g, %g, %g] (km/s).'</span>,<span class="keyword">...</span>
+v0(1), v0(2), v0(3))
+fprintf(<span class="string">'\n Magnitude = %g km/s\n'</span>, norm(v0))
+fprintf(<span class="string">'\n Initial time = %g h.\n Final time = %g h.\n'</span>,0,tf/hours)
+fprintf(<span class="string">'\n The minimum altitude is %g km at time = %g h.'</span>,<span class="keyword">...</span>
+rmin-R, t(imin)/hours)
+fprintf(<span class="string">'\n The speed at that point is %g km/s.\n'</span>, v_at_rmin)
+fprintf(<span class="string">'\n The maximum altitude is %g km at time = %g h.'</span>,<span class="keyword">...</span>
+rmax-R, t(imax)/hours)
+fprintf(<span class="string">'\n The speed at that point is %g km/s\n'</span>, v_at_rmax)
+fprintf(<span class="string">'\n--------------------------------------------------------\n\n'</span>)
+<span class="comment">%...Plot the results:</span>
+<span class="comment">% Draw the planet</span>
+[xx, yy, zz] = sphere(100);
+surf(R*xx, R*yy, R*zz)
+colormap(light_gray)
+caxis([-R/100 R/100])
+shading <span class="string">interp</span>
+<span class="comment">% Draw and label the X, Y and Z axes</span>
+line([0 2*R], [0 0], [0 0]); text(2*R, 0, 0, <span class="string">'X'</span>)
+line( [0 0], [0 2*R], [0 0]); text( 0, 2*R, 0, <span class="string">'Y'</span>)
+line( [0 0], [0 0], [0 2*R]); text( 0, 0, 2*R, <span class="string">'Z'</span>)
+<span class="comment">% Plot the orbit, draw a radial to the starting point</span>
+<span class="comment">% and label the starting point (o) and the final point (f)</span>
+hold <span class="string">on</span>
+plot3( y(:,1), y(:,2), y(:,3),<span class="string">'k'</span>)
+line([0 r0(1)], [0 r0(2)], [0 r0(3)])
+text( y(1,1), y(1,2), y(1,3), <span class="string">'o'</span>)
+text( y(end,1), y(end,2), y(end,3), <span class="string">'f'</span>)
+<span class="comment">% Select a view direction (a vector directed outward from the origin)</span>
+view([1,1,.4])
+<span class="comment">% Specify some properties of the graph</span>
+grid <span class="string">on</span>
+axis <span class="string">equal</span>
+xlabel(<span class="string">'km'</span>)
+ylabel(<span class="string">'km'</span>)
+zlabel(<span class="string">'km'</span>)
+<span class="comment">% ~~~~~~~~~~~~~~~~~~~~~~~</span>
+<span class="keyword">function</span> map = light_gray
+<span class="comment">% ~~~~~~~~~~~~~~~~~~~~~~~</span>
+
+<span class="comment">% -----------------------</span>
+r = 0.8; g = r; b = r;
+map = [r g b
+0 0 0
+r g b];
+<span class="keyword">end</span> <span class="comment">%light_gray</span>
+<span class="keyword">end</span> <span class="comment">%output</span>
+<span class="keyword">end</span> <span class="comment">%orbit</span>
+<span class="comment">% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
+</pre><pre class="codeoutput">
+
+--------------------------------------------------------
+
+ Earth Orbit
+ 28-Jan-2017 23:56:27
+
+ The initial position is [6837.43, 1868.8, 1455.48] (km).
+ Magnitude = 7236.11 km
+
+ The initial velocity is [-2.29408, 6.75885, 2.04947] (km/s).
+ Magnitude = 7.42598 km/s
+
+ Initial time = 0 h.
+ Final time = 3.33333 h.
+
+ The minimum altitude is 5499.11 km at time = 0 h.
+ The speed at that point is 7.42598 km/s.
+
+ The maximum altitude is 86765 km at time = 3.33333 h.
+ The speed at that point is 7.3418 km/s
+
+--------------------------------------------------------
+
+</pre><img vspace="5" hspace="5" src="orbit_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function orbit
+clc; close all; clear all
+hours = 3600;
+G = 6.6742e-20;
+
+%...Input data:
+% Earth:
+m1 =    5.974e24*4903/398600;                %moon %5.974e24 - earth;
+R =1737 ;                           %6378.137%1737;
+m2 = 1000;
+r0 = [6837.432552 1868.795099 1455.480629];
+v0 = [-2.294079 6.758849 2.049468];
+t0 = 0;
+tf = 200*60;                         %200*hours;
+%...End input data
+
+%...Numerical integration:
+mu = G*(m1 + m2);
+y0 = [r0 v0]';
+[t,y] = rkf45(@rates, [t0 tf], y0);
+%...Output the results:
+output
+return
+% ~~~~~~~~~~~~~~~~~~~~~~~~
+function dydt = rates(t,f)
+% ~~~~~~~~~~~~~~~~~~~~~~~~
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH
+x = f(1);
+y = f(2);
+z = f(3);
+vx = f(4);
+vy = f(5);
+vz = f(6);
+r = norm([x y z]);
+ax = -mu*x/r^3;
+ay = -mu*y/r^3;
+az = -mu*z/r^3;
+dydt = [vx vy vz ax ay az]';
+end %rates
+% ~~~~~~~~~~~~~
+function output
+% ~~~~~~~~~~~~~
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+for i = 1:length(t)
+r(i) = norm([y(i,1) y(i,2) y(i,3)]);
+end
+[rmax imax] = max(r);
+[rmin imin] = min(r);
+v_at_rmax = norm([y(imax,4) y(imax,5) y(imax,6)]);
+v_at_rmin = norm([y(imin,4) y(imin,5) y(imin,6)]);
+%...Output to the command window:
+fprintf('\n\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH\n')
+fprintf('\n Earth Orbit\n')
+fprintf(' %s\n', datestr(now))
+fprintf('\n The initial position is [%g, %g, %g] (km).',...
+r0(1), r0(2), r0(3))
+fprintf('\n Magnitude = %g km\n', norm(r0))
+fprintf('\n The initial velocity is [%g, %g, %g] (km/s).',...
+v0(1), v0(2), v0(3))
+fprintf('\n Magnitude = %g km/s\n', norm(v0))
+fprintf('\n Initial time = %g h.\n Final time = %g h.\n',0,tf/hours)
+fprintf('\n The minimum altitude is %g km at time = %g h.',...
+rmin-R, t(imin)/hours)
+fprintf('\n The speed at that point is %g km/s.\n', v_at_rmin)
+fprintf('\n The maximum altitude is %g km at time = %g h.',...
+rmax-R, t(imax)/hours)
+fprintf('\n The speed at that point is %g km/s\n', v_at_rmax)
+fprintf('\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH\n\n')
+%...Plot the results:
+% Draw the planet
+[xx, yy, zz] = sphere(100);
+surf(R*xx, R*yy, R*zz)
+colormap(light_gray)
+caxis([-R/100 R/100])
+shading interp
+% Draw and label the X, Y and Z axes
+line([0 2*R], [0 0], [0 0]); text(2*R, 0, 0, 'X')
+line( [0 0], [0 2*R], [0 0]); text( 0, 2*R, 0, 'Y')
+line( [0 0], [0 0], [0 2*R]); text( 0, 0, 2*R, 'Z')
+% Plot the orbit, draw a radial to the starting point
+% and label the starting point (o) and the final point (f)
+hold on
+plot3( y(:,1), y(:,2), y(:,3),'k')
+line([0 r0(1)], [0 r0(2)], [0 r0(3)])
+text( y(1,1), y(1,2), y(1,3), 'o')
+text( y(end,1), y(end,2), y(end,3), 'f')
+% Select a view direction (a vector directed outward from the origin)
+view([1,1,.4])
+% Specify some properties of the graph
+grid on
+axis equal
+xlabel('km')
+ylabel('km')
+zlabel('km')
+% ~~~~~~~~~~~~~~~~~~~~~~~
+function map = light_gray
+% ~~~~~~~~~~~~~~~~~~~~~~~
+
+% REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-
+r = 0.8; g = r; b = r;
+map = [r g b
+0 0 0
+r g b];
+end %light_gray
+end %output
+end %orbit
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+##### SOURCE END #####
+--></body></html>

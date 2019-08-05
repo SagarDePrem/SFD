@@ -1,0 +1,818 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+FLOW CHARACTERISTICS OF UNDER-EXPANDED AND OVER-EXPANDED NOZZLES
+\end_layout
+
+\begin_layout Author
+Nevin Thomas (AE14B016)
+\end_layout
+
+\begin_layout Section*
+OBJECTIVE
+\end_layout
+
+\begin_layout Standard
+To study and understand the underlying principles and functioning of under-expan
+ded and over-expanded nozzles.
+\end_layout
+
+\begin_layout Section*
+APPARATUS
+\end_layout
+
+\begin_layout Itemize
+Supersonic wind tunnel
+\end_layout
+
+\begin_layout Itemize
+CD-Nozzle
+\end_layout
+
+\begin_layout Itemize
+Light source
+\end_layout
+
+\begin_layout Itemize
+Mirror
+\end_layout
+
+\begin_layout Itemize
+Knife edge
+\end_layout
+
+\begin_layout Section*
+THEORY
+\end_layout
+
+\begin_layout Standard
+A CD nozzle is a tube that is pinched in the middle, making a carefully
+ balanced, asymmetric hourglass shape.
+ It is used to accelerate a hot, pressurized gas passing through it to a
+ higher supersonic speed in the axial (thrust) direction, by converting
+ the heat energy of the flow into kinetic energy .The condition when gas
+ velocity locally becomes sonic at the throat and the flow through the diverging
+ section remains isentropic and subsonic with back pressure equal to exit
+ pressure of the nozzle.
+ is called choked flow.
+ A CD nozzle will only choke at the throat if the pressure and mass flow
+ through the nozzle is sufficient to reach sonic speeds, otherwise no supersonic
+ flow is achieved, and it will act as a Venturi tube; this requires the
+ entry pressure to the nozzle to be significantly above ambient at all times.
+\end_layout
+
+\begin_layout Itemize
+The CD nozzle choke at a particular back pressure termed 'First critical
+ pressure'
+\end_layout
+
+\begin_layout Itemize
+At ' Second critical pressure ' the normal shock stands at the exit of the
+ nozzle.
+ Further increase of stagnation pressure creates oblique shocks at the diverging
+ section, this condition is called ' over-expanded nozzle '.
+\end_layout
+
+\begin_layout Itemize
+When the pressure ratio is reduced further it reaches the ' Third critical
+ pressure ratio ', when the exit pressure becomes equal to atmospheric pressure.
+ Here the nozzle is ' fully expanded ' and works at design condition, while
+ the flow is completely isentropic , i.e , there will be no shocks.
+\end_layout
+
+\begin_layout Itemize
+If the pressure ratio is below third critical pressure ratio then there
+ will be an expansion fan at the end of the nozzle and it's called ' under
+ expanded nozzle '.
+\end_layout
+
+\begin_layout Standard
+Schlieren and shadowgraph techniques helps us see the optical inhomogeneities
+ in transparent media like air, water etc.
+ They workon the principle of variation in refractive index with density
+ to map a thermal or a species concentration field.
+ Schlieren uses the first derivative of refractive index for image formation
+ while shadowgraph uses the second derivative.
+ The schlieren method relies on beam refraction towards zones of higher
+ refractive index.
+ The shadowgraph method uses the change in light intensity due to beam expansion
+ to describe the thermal/concentration field.
+\end_layout
+
+\begin_layout Subsection*
+Formulas
+\end_layout
+
+\begin_layout Itemize
+The static pressure ratio across a normal shock is given by
+\begin_inset Formula 
+\begin{equation}
+P_{2}/P_{1}=\frac{2\gamma M^{2}-(\gamma-1)}{(\gamma+1)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For an incompressible and isentropic flow
+\begin_inset Formula 
+\begin{equation}
+\frac{P_{0}}{P}=(1+\frac{\gamma-1}{2}M^{2})^{\frac{\gamma}{\gamma-1}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename F:/sem6/lab/GD/2NDROUND/CDNOZZ.bmp
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+PROCEDURE
+\end_layout
+
+\begin_layout Itemize
+Note down the design mach number and area ratio of the CD nozzle.
+\end_layout
+
+\begin_layout Itemize
+Gradually decrease the stagnation pressure of the CD nozzle from atmospheric
+ pressure.
+\end_layout
+
+\begin_layout Itemize
+Light is passed through the jet leaving the nozzle and it is visualized
+ using the appropriate set up for both schlieren and shadowgraph.
+\end_layout
+
+\begin_layout Section*
+OBSERVATIONS AND CALCULATIONS
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename IMG_20170223_160825.jpg
+	scale 8
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Photograph of the visualized flow 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The CD nozzle used has a design mach number of 1.5
+\end_layout
+
+\begin_layout Subsection*
+Third critical pressure ratio
+\end_layout
+
+\begin_layout Standard
+Third critical pressure ratio was found from equation (2) as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{P_{0}}{P_{b}}\right)_{cr3}=3.67
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{b}=P_{atm}=1.01325*10^{5}$
+\end_inset
+
+,since the nozzle is open to the atmosphere.
+ Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{0,cr3}=3.72*10^{5}Pa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Second critical pressure ratio
+\end_layout
+
+\begin_layout Standard
+Second critical pressure ratio was found using equation (1) as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{P_{b}}{P_{e}}\right)_{cr2}=2.46
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{e,cr2}=0.41*10^{5}Pa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the flow is ideally isoentropic inside the nozzle,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{P_{0}}{P_{e}}\right)_{cr2}=3.67
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{0,cr2}=1.513*10^{5}Pa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Over-expanded nozzle
+\end_layout
+
+\begin_layout Standard
+The nozzle is over-expanded when, 
+\begin_inset Formula $P_{0,cr3}>P_{0}>P_{0,cr2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{0}=2bar-gauge=3*10^{5}
+\]
+
+\end_inset
+
+- 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Figure-1-Shock-cell-structure-in-the-plume-of-an-overexpanded-jet.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+First shock
+\end_layout
+
+\begin_layout Standard
+From equation (2), we have for 
+\begin_inset Formula $M_{e}=1.5,$
+\end_inset
+
+
+\begin_inset Formula $\left(\frac{P_{0}}{P_{e}}\right)=3.67$
+\end_inset
+
+, Therefore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{e}=0.817*10^{5}Pa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $P_{e}<P_{atm}=P_{b}$
+\end_inset
+
+, this results in an oblique shock.
+\end_layout
+
+\begin_layout Standard
+Pressure ratio across the shock,
+\begin_inset Formula 
+\[
+\frac{P_{2}}{P_{1}}=\frac{P_{b}}{P_{e}}=1.24
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mach number of normal shockcorresponding to this pressure jump, 
+\begin_inset Formula $M_{n1}=1.098$
+\end_inset
+
+ and the mach number before shock 
+\begin_inset Formula $M_{1}=1.5.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The relation between exit mach number, Mn iand angle of shock 
+\begin_inset Formula $(\beta)$
+\end_inset
+
+ is given as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+M_{n}=M_{1}sin\beta
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Shock angle is found to be 
+\begin_inset Formula $\beta=47.05^{o}$
+\end_inset
+
+and from the graphs showing 
+\begin_inset Formula $\theta-\beta-M$
+\end_inset
+
+ relations, the turning angle for the frist shock is found to be 
+\begin_inset Formula $\theta_{1}=4.39^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Reflected shock
+\end_layout
+
+\begin_layout Standard
+The downstream mach number after first shock was found under the assumption
+ of weak first shock.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{2}=1.347,\theta_{2}=4.39\rightarrow\beta_{2}=54.85^{o}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gives a downstream mach number 
+\begin_inset Formula $M_{3}=1.18$
+\end_inset
+
+ and static pressure ratio , 
+\begin_inset Formula $\frac{P_{3}}{P_{2}}=1.25$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $P_{3}=1.266*10^{5}Pa$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{03}=3.0076$
+\end_inset
+
+ from the isoentropic relations.
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $P_{4}=P_{2}=P_{atm}$
+\end_inset
+
+and 
+\begin_inset Formula $\frac{P_{3}}{P_{2}}>1$
+\end_inset
+
+,an expansion fan must be present, which turns the flow away from the center
+ streamline- the second shock will be reflected back
+\end_layout
+
+\begin_layout Subsubsection*
+Expansion fan
+\end_layout
+
+\begin_layout Standard
+For the upstream Mach number 
+\begin_inset Formula $M_{3}=1.18$
+\end_inset
+
+, Prandtl Meyer function 
+\begin_inset Formula $\nu_{3}=3.088$
+\end_inset
+
+ and mach angle 
+\begin_inset Formula $\beta_{3}=57.89^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since staganation pressure remains constant across an expansion fan,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{P_{4}}{P_{04}}=\frac{P_{atm}}{P_{03}}=0.337
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From this mach number
+\begin_inset Formula $M_{4}$
+\end_inset
+
+ is found using equation (2) as, 
+\begin_inset Formula $M_{4}=1.35$
+\end_inset
+
+, which gives a prandtl meyer function 
+\begin_inset Formula $\nu_{4}=7.566^{o}$
+\end_inset
+
+ and mach angle 
+\begin_inset Formula $\beta_{4}=47.76^{o}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+From this information, fan angle, 
+\begin_inset Formula $\theta_{3}=\nu_{4}-\nu_{3}=4.478^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now the flow encounters another expansion fan and the flow direction is
+ changed again.
+ The expansion fan is reflected to form a Prandtl-compression wave.
+ Thus the series of shocks expansions and compression waves are repeated.
+\end_layout
+
+\begin_layout Subsection*
+Under-expanded nozzle
+\end_layout
+
+\begin_layout Standard
+The nozzle is under-expanded when 
+\begin_inset Formula $P_{0,cr3}<P_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{0}=2bar-gauge=5*10^{5}Pa
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename under.png
+	scale 160
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+First expansion fan
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $P_{0}=5bar$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+P_{e}=1.36*10^{5}>P_{atm}=P_{b}=P_{4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This causes an expansion fan and the upstream mach number is 
+\begin_inset Formula $M_{3}=1.5$
+\end_inset
+
+, which gives Prandtl Meyer function 
+\begin_inset Formula $\nu_{3}=1..905^{o}$
+\end_inset
+
+ and mach angle 
+\begin_inset Formula $\beta_{3}=41.81^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since staganation pressure remains constant across an expansion fan,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{P_{4}}{P_{04}}=\frac{P_{atm}}{P_{03}}=0.2026
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $M_{4}=1.699$
+\end_inset
+
+ and the corresponding Prandtl Meyer function 
+\begin_inset Formula $\nu_{4}=17.8^{o}$
+\end_inset
+
+ and mach angle 
+\begin_inset Formula $\beta_{4}=36.04^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From this information, fan angle, 
+\begin_inset Formula $\theta_{3}=\nu_{4}-\nu_{3}=5.9^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Reflected expansion fan
+\end_layout
+
+\begin_layout Standard
+The flow is turned back towards the center line by the reflected expansion
+ fan Turn angle should be such that it should make the flow parallel to
+ the center line..
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nu_{5}=\nu_{4}+\theta_{3}=23.704^{o}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gives 
+\begin_inset Formula $M_{5}=1.904$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{5}=31.68^{o}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $P_{05}=P_{04}=5bar$
+\end_inset
+
+ , 
+\begin_inset Formula $P_{5}=0.741bar$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{5}<P_{6}=P_{atm}$
+\end_inset
+
+ so there will be a compression wave, which coalesces to form a single oblique
+ shock.
+ The cycle repeats to form further diamnd shocks.
+\end_layout
+
+\begin_layout Section*
+CONCLUSIONS
+\end_layout
+
+\begin_layout Itemize
+Nozzle is over-expanded when 
+\begin_inset Formula $P_{0,cr3}>P_{0}>P_{0,cr2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Nozzle is under-expanded when 
+\begin_inset Formula $P_{0,cr3}<P_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Oblique shocks and expansions fans fromed help satisfying the boundary condition.
+ They help in making static pressure equal to atmospheric pressure at the
+ boundaries and in making the flow parallel to the center line.
+\end_layout
+
+\begin_layout Itemize
+In both under and over-expanded nozzles experimental observation revealed
+ the presence of diamond shocks.
+\end_layout
+
+\end_body
+\end_document

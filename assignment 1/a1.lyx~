@@ -1,0 +1,1012 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2.5cm
+\headsep 4cm
+\footskip 1cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+AS 5540 Assignment 1
+\end_layout
+
+\begin_layout Author
+Prem Sagar S - AE14B021
+\end_layout
+
+\begin_layout Section*
+Problem 1
+\end_layout
+
+\begin_layout Standard
+Given the initial position as 
+\begin_inset Formula 
+\[
+r_{0}=6837432.552\hat{i}+1868795.099\hat{j}+1455480.629\hat{k}m
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and inital velocity 
+\begin_inset Formula 
+\[
+v_{0}=-2294.079\hat{i}+6758.849\hat{j}+2049.468\hat{k}m/sec.
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Using these data in the orbit.m code, the position and velocity of the satellite
+ is calculated for 200 minutes.
+ 
+\end_layout
+
+\begin_layout Standard
+From the results (subsequent pages ), the plot of the trajectory is elliptic.
+\end_layout
+
+\begin_layout Standard
+minimum altitude = 852.503 km at
+\series bold
+ 0.280533 h 
+\series default
+and 875.06 km at
+\series bold
+ 1.12901 h
+\series default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The total time elapsed in moving from minimum altitude to maximum altitude
+ is half the time period.
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $T=2*60*(1.12901-0.0280533)=101.8174$
+\end_inset
+
+ minutes.
+\end_layout
+
+\begin_layout Standard
+The length of the major axis = sum of minimum and maximum altitude+earth
+ diameter
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+2a=875.503+875.06+2*6378.137=14483.837km
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a=7241.9185km
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ellipse centre to earth's centre measures 
+\series bold
+ae
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+ae=7241.9185-6378.137-852.503
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which gives,
+\begin_inset Formula 
+\[
+e=0.0015574
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Type of trajectory
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+elliptic
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+semi-major axis 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7241.9185 km
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eccentricity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.0015574
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Time period
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+101.8174 min
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Similar orbit in Moon
+\end_layout
+
+\begin_layout Standard
+If we consider an orbit with similar altitude in moon,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+a=\frac{852.503+875.06+2*1737}{2}=2600.7815
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking the same minimum and maximum 
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename p1_a.pdf
+	lyxscale 80
+	extra LaTeX "pages=1-7"
+	extra PDFLaTeX "pages=2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 2
+\end_layout
+
+\begin_layout Standard
+From Kepler's third law,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{R_{mars}}{R_{earth}}=(\frac{T_{mars}}{T_{earth}})^{2/3}
+\]
+
+\end_inset
+
+therefore the mean radius of mars is given by,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+R_{mars}=(\frac{687}{365.26})^{2/3}*149.59787*10^{6}=227.9441713*10^{6}km
+\]
+
+\end_inset
+
+Orbital speed of Earth,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{earth}=R_{earth}\omega_{earth}=\frac{R_{earth}2\pi}{T_{earth}}=\frac{2\pi*149.59787*10^{6}}{365.26*24*60*60}=29.784km/s
+\]
+
+\end_inset
+
+Orbital speed of Mars,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{mars}=R_{mars}\omega_{mars}=\frac{R_{mars}2\pi}{T_{mars}}=\frac{2\pi*227.9441713*10^{6}}{687*24*60*60}=24.129km/s
+\]
+
+\end_inset
+
+Assuming the mean radius, gravitational force of Sun on Earth, (
+\begin_inset Formula $\hat{r_{se}}$
+\end_inset
+
+ is directed from Earth to sun and vice versa)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{es}=-\frac{Gm_{earth}m_{sun}}{R_{earth}^{2}}\hat{r_{es}}=-\frac{398600km^{3}/s^{2}*1.989\text{×}10^{30}kg}{(149.59787*10^{6})^{2}km^{2}}\hat{r_{es}}=-3.542593*10^{19}N\hat{r_{es}}
+\]
+
+\end_inset
+
+From Newton's third law, force on sun due to earth is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{se}=-F_{es}=+3.542593*10^{19}N\hat{r_{es}}
+\]
+
+\end_inset
+
+Assuming the mean radius, gravitational force of Sun on Mars, (
+\begin_inset Formula $\hat{r_{ME}}$
+\end_inset
+
+ is directed from Mars to sun and vice versa)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{ms}=-\frac{Gm_{mars}m_{sun}}{R_{mars}^{2}}\hat{r_{ms}}=-\frac{42828km^{3}/s^{2}*1.989\text{×}10^{30}kg}{(385.884508*10^{6})^{2}km^{2}}\hat{r_{ms}}=-5.720683*10^{17}N\hat{r_{ms}}
+\]
+
+\end_inset
+
+From Newton's third law, force on Sun due to Mars is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{sm}=-F_{ms}=+5.720683*10^{17}N\hat{r_{ms}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 3
+\end_layout
+
+\begin_layout Standard
+Given that the satellite is moving in an elliptical orbit, the specific
+ energy is given by,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=-\frac{\mu}{2a}=-16.61320km^{2}/s^{2}
+\]
+
+\end_inset
+
+Perigee radius is given by 
+\series bold
+
+\begin_inset Formula $r_{p}=$
+\end_inset
+
+a(1-e)
+\end_layout
+
+\begin_layout Standard
+It can also be calculated as, 
+\begin_inset Formula 
+\[
+r_{p}=\frac{h^{2}/\mu}{1+ecos(0)}=\frac{h^{2}/\mu}{1+e}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a(1-e)=\frac{h^{2}/\mu}{1+e}
+\]
+
+\end_inset
+
+Thus, the specific angular momentum can be obtained as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\sqrt{\mu a(1-e^{2})}
+\]
+
+\end_inset
+
+The code enclosed has assumed satellite mass is negligible compared to Earth's
+ mass.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=-16.61320km^{2}/s^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=6.726037*10^{4}km^{2}/s
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Radial velocity
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{r}=\dot{r}=\frac{d}{dt}(\frac{h^{2}/\mu}{1+ecos\theta})=\frac{h^{2}/\mu}{-(1+ecos\theta)^{2}}(-esin\theta)\dot{\theta}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\frac{h^{4}/\mu^{2}}{(1+ecos\theta)^{2}}(esin\theta)\dot{\theta}*\frac{1}{h^{2}/\mu}=r^{2}\dot{\theta}*esin\theta*\frac{\mu}{h^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=h*esin\theta*\frac{\mu}{h^{2}}=\frac{\mu esin\theta}{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Normal velocity
+\end_layout
+
+\begin_layout Standard
+The angular momentum is given by,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=\vec{r}\times\vec{v}=\vec{r}\times(\vec{v_{\bot}}+\vec{v_{r}})=\vec{r}\times\vec{v}_{\bot}+\vec{r}\times\vec{v}_{r}=\vec{r}\times\vec{v_{\bot}}+0
+\]
+
+\end_inset
+
+where, 
+\begin_inset Formula $\vec{v_{\bot}}$
+\end_inset
+
+and 
+\begin_inset Formula $\vec{v_{r}}$
+\end_inset
+
+ are the normal and radial velocities respectively.
+\end_layout
+
+\begin_layout Standard
+This simplifies to,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+h=rv_{\bot}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{\bot}=\frac{h}{r}=\mu\frac{1+ecos\theta}{h}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Flight path angle
+\end_layout
+
+\begin_layout Standard
+Flight path angle 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the angle the velocity vector makes with the normal velocity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+tan\gamma=\frac{v_{r}}{v_{\perp}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\gamma=tan^{-1}[\frac{\frac{\mu esin\theta}{h}}{\mu\frac{1+ecos\theta}{h}}]=tan^{-1}(\frac{esin\theta}{1+ecos\theta})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The plots of radial and normal velocities against the true anomaly are given
+ in the subsequent pages.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Positive
+\series default
+ radial velocity means that the satellite is moving 
+\series bold
+away
+\series default
+ from the earth in the radial direction and vice versa.
+ Therefore the satellite is moving away when it goes from perigee to apogee
+ and is moving towards the earth when it goes from apogee to perigee.
+\end_layout
+
+\begin_layout Itemize
+Normal velocity is maximum at perigee and minimum at apogee.
+ It decreases as the satellite moves from perigee to apogee and increases
+ as the satellite moves from apogee to perigee.
+\end_layout
+
+\begin_layout Itemize
+The plots are inherently sinusoidal but the normal and radial velocities
+ have a phase difference of 
+\begin_inset Formula $\frac{\pi}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+For the bigger orbit, the magnitude of radial and velocities increase.
+\end_layout
+
+\begin_layout Itemize
+For the first case,i.e, e=0.2334 the flight path angle against 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is also sinusoidal.
+ 
+\end_layout
+
+\begin_layout Itemize
+For the second case with high eccentricity e=0.95, the change in path angle
+ is abrupt at 
+\begin_inset Formula $\theta=180^{0}$
+\end_inset
+
+.
+ Thus, the plot looks like a skewed sine wave.
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename prob 3 a.pdf
+	extra LaTeX "pages=1-3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename prob 3 b.pdf
+	extra LaTeX "pages=1-3"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 4
+\end_layout
+
+\begin_layout Standard
+Given the meteoroid is at 402000km with 
+\begin_inset Formula $\theta=150^{0}$
+\end_inset
+
+and velocity v=2.23km/s, semi major axis can be computed from the specific
+ energy relation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=\frac{\mu}{2a}=\frac{v^{2}}{2}-\frac{\mu}{r}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a=\sqrt{\frac{\mu}{2(\frac{v^{2}}{2}-\frac{\mu}{r})}}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the previous problem, the total speed is obtained as the square of
+ normal and radial velocities,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v^{2}=v_{r}^{2}+v_{\bot}^{2}=[\frac{\mu esin\theta}{h}]^{2}+[\frac{\mu(1+ecos\theta)}{h}]^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v^{2}=\frac{\mu^{2}}{h^{2}}[e^{2}sin^{2}\theta+1+e^{2}cos^{2}\theta+2ecos\theta]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v^{2}=\frac{\mu}{r(1+ecos\theta)}[e^{2}+1+2ecos\theta]
+\]
+
+\end_inset
+
+This can be simplified to a quadratic in 
+\series bold
+e,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e^{2}+(2-\frac{v^{2}r}{\mu})cos\theta e+1-\frac{v^{2}r}{\mu}=0
+\]
+
+\end_inset
+
+Since the meteoroid is known to be in a hyperbolic path, the positive root
+ greater than 1 is taken as the eccentricity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+e=1.085983
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The radius at closest approach= 
+\begin_inset Formula $r_{p}=a(e-1)=1.146873*10^{4}$
+\end_inset
+
+ km.
+\end_layout
+
+\begin_layout Standard
+Thus, the alititude at closest approach = 11468.73-6378.14 km = 5090.59 km.
+\end_layout
+
+\begin_layout Standard
+The velocity at closest approach can be computed from the energy relation,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=\frac{\mu}{2a}=\frac{v_{p}^{2}}{2}-\frac{\mu}{r_{p}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{p}=\sqrt{2(\frac{\mu}{2a}+\frac{\mu}{r_{p}})}=6.021641km/s
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hyperbolic excess velocity is defined as the velocity when the body arrives
+ at infinity.
+ It can be computed from the specific energy.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\epsilon=\frac{v^{2}}{2}-\frac{\mu}{r}=\frac{v_{\infty}^{2}}{2}=\frac{\mu}{2a}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v_{\infty}=\sqrt{\frac{\mu}{a}}=1.72894km/s
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Having known the semi major axis and eccentricity, the trajectory can be
+ determined from the equation of hyperbola given by,
+\begin_inset Formula 
+\[
+\frac{x^{2}}{a^{2}}-\frac{y^{2}}{a^{2}(1-e^{2})}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As r
+\begin_inset Formula $\rightarrow\infty$
+\end_inset
+
+, 
+\begin_inset Formula $(1+ecos\theta_{\infty})\rightarrow0$
+\end_inset
+
+, therfore,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\theta_{\infty}=cos^{-1}(\frac{-1}{e})=cos^{-1}(\frac{-1}{1.085983})=157.0469^{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename problem 4.pdf
+	extra LaTeX "pages=1-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Problem 5
+\end_layout
+
+\begin_layout Standard
+Given mean anomaly 
+\begin_inset Formula $M_{e}=$
+\end_inset
+
+and eccentricity 
+\begin_inset Formula $e=$
+\end_inset
+
+, the eccentric anomaly can be obtained from the Kepler's equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M_{e}=E-esinE
+\]
+
+\end_inset
+
+The difficulty in obtaining an analytical solution for E gives way to using
+ Newton Raphson method to obtain 
+\series bold
+E.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E=2.772571radians
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset External
+	template PDFPages
+	filename problem 5.pdf
+	extra LaTeX "pages=1-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

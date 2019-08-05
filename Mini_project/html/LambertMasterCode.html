@@ -1,0 +1,278 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>LambertMasterCode</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-03-20"><meta name="DC.source" content="LambertMasterCode.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">inputs</a></li><li><a href="#3">Azimuth and elevation rates</a></li><li><a href="#4">Time, month, date, true anomaly</a></li><li><a href="#5">Lambert's method</a></li><li><a href="#6">Print outputs</a></li><li><a href="#7">Orbit  Plot</a></li></ul></div><pre class="codeinput">  clear <span class="string">all</span>;  clc;
+</pre><h2>inputs<a name="2"></a></h2><pre class="codeinput"><span class="keyword">global</span> mu
+file=<span class="string">'ri1.mat'</span>;          <span class="comment">% As1.mat/mt1.mat/p6.mat/ri1.mat/rs2_1.mat/rs2_2.mat</span>
+k=100; q=400;           <span class="comment">% kth and qth vectors used in Gibbs determination</span>
+load(file)              <span class="comment">% load the corresponding mat file</span>
+T=0;
+deg = pi/180;
+mu = 398600;
+</pre><h2>Azimuth and elevation rates<a name="3"></a></h2><pre class="codeinput">j=size(A);                        <span class="comment">% number of readings</span>
+<span class="keyword">for</span> i=1:j-1
+   Adot(i,1)=A(i+1)-A(i);         <span class="comment">% Azimuth rate</span>
+   adot(i,1)=a(i+1)-a(i);         <span class="comment">% elevation rate</span>
+<span class="keyword">end</span>
+</pre><h2>Time, month, date, true anomaly<a name="4"></a></h2><pre class="codeinput">ut=hh+mm/60+ss/60/60+mss/1000/60/60;    <span class="comment">% calculate UT hours</span>
+<span class="keyword">for</span> i=1:length(Year)
+    [m(i),d(i)] = md(Year(i),Day(i));
+<span class="keyword">end</span>
+m=m';d=d';                              <span class="comment">% month and date</span>
+theta=LST(Year, m, d, ut,EL);           <span class="comment">% local sidereal time</span>
+</pre><h2>Lambert's method<a name="5"></a></h2><pre class="codeinput">r1=r_from_observe(rho(k), A(k), a(k), theta(k), phi, H);         <span class="comment">% initial postition vector</span>
+r2=r_from_observe(rho(q), A(q), a(q), theta(q), phi, H);         <span class="comment">% final position vector</span>
+dt=3600*(ut(q)-ut(k));                       <span class="comment">% time interval b/w final and initial</span>
+string=<span class="string">'pro'</span>;
+[v1,v2] = lambert(r1, r2, dt, string);
+coe = coe_from_sv(r1, v1, mu);
+TA1 = coe(6);
+<span class="keyword">if</span> coe(7)&lt;0
+    string=<span class="string">'retro'</span>;
+    [v1,v2] = lambert(r1, r2, dt, string);
+    coe = coe_from_sv(r1, v1, mu);
+<span class="keyword">end</span>
+coe = coe_from_sv(r2, v2, mu);
+TA2 = coe(6);
+</pre><h2>Print outputs<a name="6"></a></h2><pre class="codeinput">fprintf(<span class="string">'-----------------------------------------------------'</span>)
+fprintf(<span class="string">'\n\n Input data:\n'</span>);
+fprintf(<span class="string">'\n Gravitational parameter (km^3/s^2)  = %g\n'</span>, mu);
+fprintf(<span class="string">'\n r1 (km)                             = [%g %g %g]'</span>, <span class="keyword">...</span>
+r1(1), r1(2), r1(3))
+fprintf(<span class="string">'\n r2 (km)                             = [%g %g %g]'</span>, <span class="keyword">...</span>
+r2(1), r2(2), r2(3))
+fprintf(<span class="string">'\n Elapsed time (s)                    = %g'</span>, dt);
+fprintf(<span class="string">'\n\n Lambert OD Solution:\n'</span>)
+fprintf(<span class="string">'\n v1 (km/s)                           = [%g %g %g]'</span>, <span class="keyword">...</span>
+v1(1), v1(2), v1(3))
+fprintf(<span class="string">'\n v2 (km/s)                           = [%g %g %g]'</span>, <span class="keyword">...</span>
+v2(1), v2(2), v2(3))
+fprintf(<span class="string">'\n\n Orbital elements:'</span>)
+fprintf(<span class="string">'\n Angular momentum (km^2/s)           = %g'</span>, coe(1))
+fprintf(<span class="string">'\n Eccentricity                        = %g'</span>, coe(2))
+fprintf(<span class="string">'\n Inclination (deg)                   = %g'</span>, coe(4)/deg)
+fprintf(<span class="string">'\n Type of orbit Prograde / Retrograde = %c%c%c%c%c'</span>, string)
+fprintf(<span class="string">'\n RA of ascending node (deg)          = %g'</span>, coe(3)/deg)
+fprintf(<span class="string">'\n Argument of perigee (deg)           = %g'</span>, coe(5)/deg)
+fprintf(<span class="string">'\n True anomaly initial (deg)          = %g'</span>, TA1/deg)
+fprintf(<span class="string">'\n True anomaly final (deg)            = %g'</span>, TA2/deg)
+fprintf(<span class="string">'\n Semimajor axis (km)                 = %g'</span>, coe(7))
+fprintf(<span class="string">'\n Periapse radius (km)                = %g'</span>, coe(1)^2/mu/(1 +coe(2)))
+<span class="comment">%...If the orbit is an ellipse, output its period:</span>
+<span class="keyword">if</span> coe(2)&lt;1
+T = 2*pi/sqrt(mu)*coe(7)^1.5;
+fprintf(<span class="string">'\n Period                              = %g minutes'</span>, T/60)
+<span class="keyword">end</span>
+fprintf(<span class="string">'\n-----------------------------------------------------\n'</span>)
+</pre><pre class="codeoutput">-----------------------------------------------------
+
+ Input data:
+
+ Gravitational parameter (km^3/s^2)  = 398600
+
+ r1 (km)                             = [-1521.79 -6699.06 512.96]
+ r2 (km)                             = [-1666.56 -6175.85 2716.1]
+ Elapsed time (s)                    = 300
+
+ Lambert OD Solution:
+
+ v1 (km/s)                           = [-0.769793 0.55031 7.57191]
+ v2 (km/s)                           = [-0.189136 2.89595 6.98548]
+
+ Orbital elements:
+ Angular momentum (km^2/s)           = 52549.8
+ Eccentricity                        = 0.0268063
+ Inclination (deg)                   = 96.55
+ Type of orbit Prograde / Retrograde = retro
+ RA of ascending node (deg)          = 257.693
+ Argument of perigee (deg)           = 286.517
+ True anomaly initial (deg)          = 189.435
+ True anomaly final (deg)            = 96.6498
+ Semimajor axis (km)                 = 6932.92
+ Periapse radius (km)                = 6747.08
+ Period                              = 95.7491 minutes
+-----------------------------------------------------
+</pre><h2>Orbit  Plot<a name="7"></a></h2><pre class="codeinput">m1 = 5.974e24 ;
+R = 6378.178;
+m2 = 1000;
+t0 = 0;
+tf = T/60;  <span class="comment">% hours</span>
+orbit(m1,m2,R,r2,v2,t0,tf)
+</pre><pre class="codeoutput">
+
+--------------------------------------------------------
+
+ Earth Orbit
+ 20-Mar-2017 04:27:26
+
+ The initial position is [-1666.56, -6175.85, 2716.1] (km).
+ Magnitude = 6949.52 km
+
+ The initial velocity is [-0.189136, 2.89595, 6.98548] (km/s).
+ Magnitude = 7.56434 km/s
+
+ Initial time = 0 min.
+ Final time = 95.7491 min.
+
+ The minimum altitude is 366.66 km at time = 1.56135 h.
+ The speed at that point is 7.79106 km/s.
+
+ The maximum altitude is 738.701 km at time = 0.165841 h.
+ The speed at that point is 7.38382 km/s
+
+--------------------------------------------------------
+
+</pre><img vspace="5" hspace="5" src="LambertMasterCode_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+  clear all;  clc;
+  
+%% inputs
+global mu 
+file='ri1.mat';          % As1.mat/mt1.mat/p6.mat/ri1.mat/rs2_1.mat/rs2_2.mat
+k=100; q=400;           % kth and qth vectors used in Gibbs determination
+load(file)              % load the corresponding mat file
+T=0;
+deg = pi/180;
+mu = 398600;
+%% Azimuth and elevation rates
+j=size(A);                        % number of readings
+for i=1:j-1
+   Adot(i,1)=A(i+1)-A(i);         % Azimuth rate
+   adot(i,1)=a(i+1)-a(i);         % elevation rate
+end
+%% Time, month, date, true anomaly
+ut=hh+mm/60+ss/60/60+mss/1000/60/60;    % calculate UT hours
+for i=1:length(Year)
+    [m(i),d(i)] = md(Year(i),Day(i));
+end
+m=m';d=d';                              % month and date
+theta=LST(Year, m, d, ut,EL);           % local sidereal time
+
+%% Lambert's method
+
+ 
+r1=r_from_observe(rho(k), A(k), a(k), theta(k), phi, H);         % initial postition vector
+r2=r_from_observe(rho(q), A(q), a(q), theta(q), phi, H);         % final position vector
+dt=3600*(ut(q)-ut(k));                       % time interval b/w final and initial
+string='pro';
+[v1,v2] = lambert(r1, r2, dt, string);
+coe = coe_from_sv(r1, v1, mu); 
+TA1 = coe(6);
+if coe(7)<0
+    string='retro';
+    [v1,v2] = lambert(r1, r2, dt, string);
+    coe = coe_from_sv(r1, v1, mu);
+end
+coe = coe_from_sv(r2, v2, mu);                
+TA2 = coe(6);
+
+%% Print outputs
+
+fprintf('REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-')
+fprintf('\n\n Input data:\n');
+fprintf('\n Gravitational parameter (km^3/s^2)  = %g\n', mu);
+fprintf('\n r1 (km)                             = [%g %g %g]', ...
+r1(1), r1(2), r1(3))
+fprintf('\n r2 (km)                             = [%g %g %g]', ...
+r2(1), r2(2), r2(3))
+fprintf('\n Elapsed time (s)                    = %g', dt);
+fprintf('\n\n Lambert OD Solution:\n')
+fprintf('\n v1 (km/s)                           = [%g %g %g]', ...
+v1(1), v1(2), v1(3))
+fprintf('\n v2 (km/s)                           = [%g %g %g]', ...
+v2(1), v2(2), v2(3))
+fprintf('\n\n Orbital elements:')
+fprintf('\n Angular momentum (km^2/s)           = %g', coe(1))
+fprintf('\n Eccentricity                        = %g', coe(2))
+fprintf('\n Inclination (deg)                   = %g', coe(4)/deg)
+fprintf('\n Type of orbit Prograde / Retrograde = %c%c%c%c%c', string)
+fprintf('\n RA of ascending node (deg)          = %g', coe(3)/deg)
+fprintf('\n Argument of perigee (deg)           = %g', coe(5)/deg)
+fprintf('\n True anomaly initial (deg)          = %g', TA1/deg)
+fprintf('\n True anomaly final (deg)            = %g', TA2/deg)
+fprintf('\n Semimajor axis (km)                 = %g', coe(7))
+fprintf('\n Periapse radius (km)                = %g', coe(1)^2/mu/(1 +coe(2)))
+%...If the orbit is an ellipse, output its period:
+if coe(2)<1
+T = 2*pi/sqrt(mu)*coe(7)^1.5;
+fprintf('\n Period                              = %g minutes', T/60)
+end
+fprintf('\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH-\n')
+%% Orbit  Plot
+m1 = 5.974e24 ; 
+R = 6378.178;
+m2 = 1000;
+t0 = 0;
+tf = T/60;  % hours
+orbit(m1,m2,R,r2,v2,t0,tf)
+
+
+
+
+##### SOURCE END #####
+--></body></html>

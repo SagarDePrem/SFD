@@ -1,0 +1,312 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm,headheight=2.5cm,headsep=4cm,footskip=1cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+\usepackage{amstext}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{\textbf{AS 5540 Assignment 1}}
+
+
+\author{Prem Sagar S - AE14B021}
+
+\maketitle
+
+\section*{Problem 1}
+
+Given the initial position as 
+\[
+r_{0}=6837432.552\hat{i}+1868795.099\hat{j}+1455480.629\hat{k}m
+\]
+
+
+and inital velocity 
+\[
+v_{0}=-2294.079\hat{i}+6758.849\hat{j}+2049.468\hat{k}m/sec.
+\]
+ 
+
+Using these data in the orbit.m code, the position of the satellite
+is calculated for 200 minutes. 
+
+From the results (pages 2-4), the plot of the trajectory is elliptic.
+
+minimum altitude = 852.503 km at\textbf{ 0.280533 h }and 875.06 km
+at\textbf{ 1.12901 h}. 
+
+The total time elapsed in moving from minimum altitude to maximum
+altitude is half the time period.
+
+Therefore, $T=2*60*(1.12901-0.0280533)=101.8174$ minutes.
+
+The length of the major axis = sum of minimum and maximum altitude+earth
+diameter
+
+\[
+2a=875.503+875.06+2*6378.137=14483.837km
+\]
+
+
+\[
+a=7241.9185km
+\]
+
+
+The ellipse centre to earth's centre measures \textbf{ae}
+
+\[
+ae=7241.9185-6378.137-852.503
+\]
+
+
+which gives,
+\[
+e=0.0015574
+\]
+
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline 
+Position at $t_{f}$ & \tabularnewline
+\hline 
+Velocity at $t_{f}$ & \tabularnewline
+\hline 
+Type of trajectory & elliptic\tabularnewline
+\hline 
+semi-major axis  & 7241.9185 km\tabularnewline
+\hline 
+Eccentricity & 0.0015574\tabularnewline
+\hline 
+Time period & 101.8174 min\tabularnewline
+\hline 
+\end{tabular}
+\par\end{center}
+
+\includepdf[pages=1-3]{\string"prob 1 a\string"}
+
+\includepdf[pages=1-3]{\string"prob 1 b\string"}
+
+
+\section*{Problem 2}
+
+From Kepler's third law,
+
+\[
+\frac{R_{mars}}{R_{earth}}=(\frac{T_{mars}}{T_{earth}})^{2/3}
+\]
+therefore the mean radius of mars is given by,
+
+\[
+R_{mars}=(\frac{687}{365.26})^{3/2}*149.59787*10^{6}=385.884508*10^{6}km
+\]
+Orbital speed of Earth,
+
+\[
+\omega_{earth}=\frac{2\pi}{T_{earth}}=\frac{2\pi}{365.26*24*60*60}=1.990967*10^{-7}rad/s
+\]
+Orbital speed of Mars,
+
+\[
+\omega_{mars}=\frac{2\pi}{T_{mars}}=\frac{2\pi}{687*24*60*60}=1.058545155*10^{-7}rad/s
+\]
+Assuming the mean radius, gravitational force of Sun on Earth, ($\hat{r_{se}}$
+is directed from Earth to sun and vice versa)
+
+\[
+F_{es}=-\frac{Gm_{earth}m_{sun}}{R_{earth}^{2}}\hat{r_{es}}=-\frac{398600km^{3}/s^{2}*1.989\text{\texttimes}10^{30}kg}{(149.59787*10^{6})^{2}km^{2}}\hat{r_{es}}=-3.542593*10^{19}N\hat{r_{es}}
+\]
+From Newton's third law, force on sun due to earth is 
+
+\[
+F_{se}=-F_{es}=+3.542593*10^{19}N\hat{r_{es}}
+\]
+Assuming the mean radius, gravitational force of Sun on Mars, ($\hat{r_{ME}}$
+is directed from Mars to sun and vice versa)
+
+\[
+F_{ms}=-\frac{Gm_{mars}m_{sun}}{R_{mars}^{2}}\hat{r_{ms}}=-\frac{42828km^{3}/s^{2}*1.989\text{\texttimes}10^{30}kg}{(385.884508*10^{6})^{2}km^{2}}\hat{r_{ms}}=-5.720683*10^{17}N\hat{r_{ms}}
+\]
+From Newton's third law, force on Sun due to Mars is 
+
+\[
+F_{sm}=-F_{ms}=+5.720683*10^{17}N\hat{r_{ms}}
+\]
+
+
+
+\section*{Problem 3}
+
+Given that the satellite is moving in an elliptical orbit, the specific
+energy is given by,
+
+\[
+\epsilon=-\frac{\mu}{2a}
+\]
+Perigee radius is given by \textbf{$r_{p}=$a(1-e)}
+
+It can also be calculated as, 
+\[
+r_{p}=\frac{h^{2}/\mu}{1+ecos(0)}=\frac{h^{2}/\mu}{1+e}
+\]
+\[
+a(1-e)=\frac{h^{2}/\mu}{1+e}
+\]
+Thus, the specific angular momentum can be obtained as,
+
+\[
+h=\sqrt{\mu a(1-e^{2})}
+\]
+The code enclosed has assumed satellite mass is negligible compared
+to Earth's mass.
+
+\[
+\epsilon=-16.1320km^{2}/s^{2}
+\]
+
+
+\[
+h=6.726037*10^{4}km^{2}/s
+\]
+
+
+
+\subsection*{Radial velocity}
+
+\[
+v_{r}=\dot{r}=\frac{d}{dt}(\frac{h^{2}/\mu}{1+ecos\theta})=\frac{h^{2}/\mu}{-(1+ecos\theta)^{2}}(-esin\theta)\dot{\theta}
+\]
+\[
+=\frac{h^{4}/\mu^{2}}{(1+ecos\theta)^{2}}(esin\theta)\dot{\theta}*\frac{1}{h^{2}/\mu}=r^{2}\dot{\theta}*esin\theta*\frac{\mu}{h^{2}}
+\]
+\[
+=h*esin\theta*\frac{\mu}{h^{2}}=\frac{\mu esin\theta}{h}
+\]
+
+
+
+\subsection*{Normal velocity}
+
+The angular momentum is given by,
+
+\[
+h=\vec{r}\times\vec{v}=\vec{r}\times(\vec{v_{\bot}}+\vec{v_{r}})=\vec{r}\times\vec{v}_{\bot}+\vec{r}\times\vec{v}_{r}=\vec{r}\times\vec{v_{\bot}}+0
+\]
+where, $\vec{v_{\bot}}$and $\vec{v_{r}}$ are the normal and radial
+velocities respectively.
+
+This simplifies to,
+
+\[
+h=rv_{\bot}
+\]
+
+
+\[
+v_{\bot}=\frac{h}{r}=\mu\frac{1+ecos\theta}{h}
+\]
+
+
+\[
+\]
+
+
+\includepdf[pages=1-3]{\string"prob 3 a\string"}
+
+\includepdf[pages=1-3]{\string"prob 3 b\string"}
+
+
+\section*{Problem 4}
+
+Given the meteoroid is at 402000km with $\theta=150^{0}$and velocity
+v=2.23km/s, semi major axis can be computed from the specific energy
+relation.
+
+\[
+\epsilon=\frac{\mu}{2a}=\frac{v^{2}}{2}-\frac{\mu}{r}
+\]
+\[
+a=\sqrt{\frac{\mu}{2(\frac{v^{2}}{2}-\frac{\mu}{r})}}
+\]
+
+
+From the previous problem, the total speed is obtained as the square
+of normal and radial velocities,
+
+\[
+v^{2}=v_{r}^{2}+v_{\bot}^{2}=[\frac{\mu esin\theta}{h}]^{2}+[\frac{\mu(1+ecos\theta)}{h}]^{2}
+\]
+\[
+v^{2}=\frac{\mu^{2}}{h^{2}}[e^{2}sin^{2}\theta+1+e^{2}cos^{2}\theta+2ecos\theta]
+\]
+\[
+v^{2}=\frac{\mu}{r(1+ecos\theta)}[e^{2}+1+2ecos\theta]
+\]
+This can be simplified to a quadratic in \textbf{e,}
+
+\[
+e^{2}+(2-\frac{v^{2}r}{\mu})cos\theta e+1-\frac{v^{2}r}{\mu}=0
+\]
+Since the meteoroid is known to be in a hyperbolic path, the positive
+root greater than 1 is taken as the eccentricity.
+
+The radius at closest approach= $r_{p}=a(e-1)$.
+
+The velocity at closest approach can be computed from the energy relation,
+
+\[
+\epsilon=\frac{\mu}{2a}=\frac{v_{p}^{2}}{2}-\frac{\mu}{r_{p}}
+\]
+
+
+\[
+v_{p}=\sqrt{2(\frac{\mu}{2a}+\frac{\mu}{r_{p}})}
+\]
+Having known the semi major axis and eccentricity, the trajectory
+can be determined from the equation of hyperbola given by,
+\[
+\frac{x^{2}}{a^{2}}-\frac{y^{2}}{a^{2}(1-e^{2})}=1
+\]
+
+
+\includepdf[pages=1-2]{\string"problem 4\string"}
+
+
+\section*{Problem 5}
+
+Given mean anomaly $M_{e}=$and eccentricity $e=$, the eccentric
+anomaly can be obtained from the Kepler's equation
+
+\[
+M_{e}=E-esinE
+\]
+The difficulty in obtaining an analytical solution for E gives way
+to using Newton Raphson method to obtain \textbf{E.}
+
+\[
+E=2.772571radians
+\]
+
+
+\includepdf[pages=1-2]{\string"problem 5\string"}
+\end{document}

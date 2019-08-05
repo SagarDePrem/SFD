@@ -1,0 +1,197 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>problem_4</title><meta name="generator" content="MATLAB 9.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-01-28"><meta name="DC.source" content="problem_4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">clc; clear <span class="string">all</span>;
+r=402000;
+R=6378;
+mu=6.6742e-20*5.974e24;
+v=2.23;
+theta=150*pi/180;
+a=mu*0.5/(0.5*v^2-mu/r); <span class="comment">% semi major axis</span>
+c=1-v^2*r/mu;
+e= max(roots([1 (1+c)*cos(theta) c])); <span class="comment">%quadratic equation solvng eccentricity</span>
+r_p=a*(e-1); <span class="comment">% altitude at closest approach</span>
+v_p=sqrt(mu*(1/2/a+1/r_p)); <span class="comment">%speed at closest approach</span>
+v_inf=sqrt(mu/a); <span class="comment">% hyperbolic excess velocity</span>
+b=a*sqrt(e^2-1);
+
+<span class="comment">%plots the trajectory</span>
+
+x1=linspace(-600000,-a,1000);
+y1= b*sqrt(x1.^2/a^2-1);
+y1a= -b*sqrt(x1.^2/a^2-1);
+plot(x1,y1);
+hold <span class="string">on</span>
+plot(x1,y1a);
+x2=linspace( a, 600000,1000);
+y2=b*sqrt(x2.^2/a^2-1);
+y2a=-b*sqrt(x2.^2/a^2-1);
+plot(x2,y2)
+plot(x2,y2a)
+
+newLim = get(gca,<span class="string">'XLim'</span>);
+newx = linspace(newLim(1), newLim(2),11);
+set(gca,<span class="string">'XTick'</span>, newx);
+ax = gca;
+ax.XAxisLocation = <span class="string">'origin'</span>;
+ax.YAxisLocation = <span class="string">'origin'</span>;
+
+ plot(a*e, 0,<span class="string">'.b'</span>, <span class="string">'MarkerSize'</span>,20)
+ plot(a*e-402000*cos(theta), 402000*sin(theta), <span class="string">'.r'</span>, <span class="string">'MarkerSize'</span>,15)
+
+ xlabel(<span class="string">'X (km)'</span>)
+ylabel(<span class="string">'Y (km)'</span>)
+title(<span class="string">'Trajectory of the meteroid'</span>)
+
+<span class="comment">%displays results</span>
+
+fprintf(<span class="string">'\n\n--------------------------------------------------------\n'</span>)
+fprintf(<span class="string">'\n Eccentricty \n'</span>)
+fprintf(<span class="string">' %s\n'</span>,e )
+fprintf(<span class="string">'\n Altitude at closest approach\n'</span>)
+fprintf(<span class="string">' %s km/s\n'</span>, r_p )
+fprintf(<span class="string">'\n Speed at closest approach\n'</span>)
+fprintf(<span class="string">' %s km/s\n'</span>, v_p )
+fprintf(<span class="string">'\n Hyperbolic excess velocity\n'</span>)
+fprintf(<span class="string">' %s km/s\n'</span>, v_inf )
+fprintf(<span class="string">'\n--------------------------------------------------------\n'</span>)
+</pre><pre class="codeoutput">
+
+--------------------------------------------------------
+
+ Eccentricty 
+ 1.085983e+00
+
+ Altitude at closest approach
+ 1.146873e+04 km/s
+
+ Speed at closest approach
+ 6.021641e+00 km/s
+
+ Hyperbolic excess velocity
+ 1.728940e+00 km/s
+
+--------------------------------------------------------
+</pre><img vspace="5" hspace="5" src="problem_4_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2016a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clc; clear all;
+r=402000;
+R=6378;
+mu=6.6742e-20*5.974e24;
+v=2.23;
+theta=150*pi/180;
+a=mu*0.5/(0.5*v^2-mu/r); % semi major axis
+c=1-v^2*r/mu;
+e= max(roots([1 (1+c)*cos(theta) c])); %quadratic equation solvng eccentricity
+r_p=a*(e-1); % altitude at closest approach
+v_p=sqrt(mu*(1/2/a+1/r_p)); %speed at closest approach
+v_inf=sqrt(mu/a); % hyperbolic excess velocity
+b=a*sqrt(e^2-1);
+
+%plots the trajectory
+
+x1=linspace(-600000,-a,1000);
+y1= b*sqrt(x1.^2/a^2-1);
+y1a= -b*sqrt(x1.^2/a^2-1);
+plot(x1,y1);
+hold on
+plot(x1,y1a);
+x2=linspace( a, 600000,1000);
+y2=b*sqrt(x2.^2/a^2-1);
+y2a=-b*sqrt(x2.^2/a^2-1);
+plot(x2,y2)
+plot(x2,y2a)
+
+newLim = get(gca,'XLim'); 
+newx = linspace(newLim(1), newLim(2),11); 
+set(gca,'XTick', newx); 
+ax = gca;
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
+ 
+ plot(a*e, 0,'.b', 'MarkerSize',20)
+ plot(a*e-402000*cos(theta), 402000*sin(theta), '.r', 'MarkerSize',15)
+ 
+ xlabel('X (km)')
+ylabel('Y (km)')
+title('Trajectory of the meteroid')
+
+%displays results
+
+fprintf('\n\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH\n')
+fprintf('\n Eccentricty \n')
+fprintf(' %s\n',e )
+fprintf('\n Altitude at closest approach\n')
+fprintf(' %s km/s\n', r_p )
+fprintf('\n Speed at closest approach\n')
+fprintf(' %s km/s\n', v_p )
+fprintf('\n Hyperbolic excess velocity\n')
+fprintf(' %s km/s\n', v_inf )
+fprintf('\nREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH\n')
+##### SOURCE END #####
+--></body></html>

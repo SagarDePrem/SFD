@@ -1,0 +1,12 @@
+ Solution:
+
+  v2 (km/s) = [-6.3792  3.69013  0.839551]
+
+  Orbital elements:
+    Angular momentum (km^2/s)  = 53704.4
+    Eccentricity               = 0.00070312
+    Inclination (deg)          = 20.0942
+    RA of ascending node (deg) = 348.096
+    Argument of perigee (deg)  = 228.821
+    True anomaly (deg)         = 201.928
+    Semimajor axis (km)        = 7235.72

@@ -1,0 +1,43 @@
+*******************************************
+* input data file for ss2d_opt.m
+* Earth-to-Mars trajectory - non-ideal sail
+*******************************************
+
+number of trajectory segments
+50
+
+characteristic acceleration (meters/second**2)
+0.001
+
+optical force model coefficient b1 (b1 = 0 = ideal)
+0.0864
+
+optical force model coefficient b2 (b2 = 1 = ideal)
+0.8272
+
+optical force model coefficient b3 (b3 = 0 = ideal)
+-5.45e-3
+
+target planet (1 = Venus, 2 = Mars)
+2
+
+initial guess for mission duration (days)
+400
+
+lower bound for mission duration (days)
+250
+
+upper bound for mission duration (days)
+500
+
+initial guess for steering angles (degrees)
+20.0
+
+lower bound for steering angles (degrees)
+0.0
+
+upper bound for steering angles (degrees)
+90.0
+
+departure calendar date initial guess (month, day, year)
+1,1,2020

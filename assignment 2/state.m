@@ -1,0 +1,26 @@
+clc; clear all; close all;
+theta=40*pi/180;
+phi=35*pi/180;
+Az=36*pi/180;
+El=36.6*pi/180;
+AzDot=0.59*pi/180;
+ElDot=-0.263*pi/180;
+rho=988;
+rhoDot=4.86;
+mu=398600;
+Re=6378.1377;
+H=0;
+f=0.003353;
+digits(10);
+R1=Re/(1-(2*f-f^2)*sin(phi)^2)^0.5;
+R=(R1+H)*cos(phi)*[cos(theta) sin(theta) 0]+(R1*(1-f)^2+H)*sin(phi)*[0 0 1];
+dec=asin(cos(phi)*cos(Az)*cos(El)+sin(phi)*sin(El));
+h=2*pi-acos((cos(phi)*sin(El)-sin(phi)*cos(Az)*cos(El))/cos(dec)) ;
+alpha=theta-h;
+rhoCap=cos(dec)*[cos(alpha) sin(alpha) 0]+sin(dec)*[0 0 1];
+r=R+rho*rhoCap;
+Rdot=cross([0 0 72.92*10^-6],R);
+decDot=(-AzDot*cos(phi)*sin(Az)*cos(El)+ElDot*(sin(phi)*cos(El)-cos(phi)*cos(Az)*sin(El)))/cos(dec);
+alphaDot=72.92*10^-6+(AzDot*cos(Az)*cos(El)-ElDot*sin(Az)*sin(El)+decDot*sin(Az)*cos(El)*tan(dec))/(cos(phi)*sin(El)-sin(phi)*cos(Az)*cos(El));
+rhoDotCap=[(-alphaDot*sin(alpha)*cos(dec)-decDot*cos(alpha)*sin(dec)) alphaDot*cos(alpha)*cos(dec)-decDot*sin(alpha)*sin(dec) decDot*cos(dec)];
+v=Rdot+rhoDot*rhoCap+rho*rhoDotCap
